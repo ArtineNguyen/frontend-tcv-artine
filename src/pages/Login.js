@@ -21,7 +21,7 @@ export default function Login(props) {
         setVisibleBtn('visible')
     }
     const loginUser = async()=>{
-        const resp = await fetch('http://127.0.0.1:5000/login',{
+        const resp = await fetch('https://127.0.0.1:5000/login',{
         method: "POST",
         headers:{
             "Content-Type": "application/json",
@@ -34,7 +34,7 @@ export default function Login(props) {
         if(resp.ok){
             const data = await resp.json()
             if(data.success){
-                props.setCurrentUser(data.user)
+                localStorage.setItem('token', data.token)
                 console.log(data.user)
                 history.push("/")
             }else{
@@ -42,6 +42,7 @@ export default function Login(props) {
             }
         }
     }
+    if(props.currentUser) history.push('/')
     return (
         <div>
             <div>
@@ -59,7 +60,7 @@ export default function Login(props) {
                     </label>
                     <p className="forgot-pass">Forgot password?</p>
                     <button type="submit" className="submit" onClick={loginUser}>Sign In</button>
-                    <button type="button" className="fb-btn">Connect with <span>facebook</span></button>
+                    <a href="https://127.0.0.1:5000/loginfacebook/facebook" className="fb-btn">Join with <span>facebook</span></a>
                 </div>
                 <div className="sub-cont">
                     <div className="img">
@@ -93,7 +94,7 @@ export default function Login(props) {
                             <input type="password" />
                         </label>
                         <button type="button" className="submit">Sign Up</button>
-                        <button type="button" className="fb-btn">Join with <span>facebook</span></button>
+                        <a href="https://127.0.0.1:5000/loginfacebook/facebook" className="fb-btn">Join with <span>facebook</span></a>
                     </div>
                 </div>
             </div>

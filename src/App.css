@@ -191,31 +191,32 @@ h2 {
 
 label {
   display: block;
+  text-align: left;
   width: 260px;
   margin: 25px auto 0;
 }
 label span {
-  font-size: 12px;
+  letter-spacing: 2px;
+  font-size: 10px;
   color: #cfcfcf;
-  text-align: left;
   text-transform: uppercase;
 }
 
 input {
   display: block;
   width: 100%;
-  margin-top: 5px;
   padding-bottom: 5px;
   font-size: 16px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-  text-align: center;
+  text-align: left;
 }
 
 .forgot-pass {
   width: 160px;
-  margin: 0 0 0 27% x;
+  margin: 0 1% 0 27%;
+  letter-spacing: 2px;
   text-align: left;
-  font-size: 12px;
+  font-size: 10px;
   color: #cfcfcf;
 }
 
