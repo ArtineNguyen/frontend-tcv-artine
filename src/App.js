@@ -4,6 +4,8 @@ import './App.css';
 import {Switch, Route} from 'react-router-dom'
 import Login from './pages/Login'
 import NavBar from './components/NavBar';
+import Forgot from './pages/Forgot';
+import Post from './pages/Post'
 
 
 function App() {
@@ -38,13 +40,15 @@ function App() {
     }
     setLoaded(true)
   }
-  if (!loaded) return <h1>loading</h1>
+  // if (!loaded) return <h1>loading</h1>
   return (
     <div className="App">
       <NavBar currentUser = {currentUser} setCurrentUser = {setCurrentUser}/>
       <Switch> 
         <Route exact path="/" render={()=> <Home />}/>
+        <Route path="/forgot" render={()=> <Forgot/>}/>
         <Route path="/login" render ={()=> <Login setCurrentUser={setCurrentUser}/>}/>
+        <Route path="/upload-post" render={()=> <Post currentUser = {currentUser}/>}/>
       </Switch>
     </div>
   );
