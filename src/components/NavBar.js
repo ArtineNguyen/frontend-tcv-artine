@@ -6,7 +6,7 @@ import Countdown from 'react-countdown-now';
 export default function NavBar(props) {
   const history = useHistory()
   const logOut = async () => {
-    const resp = await fetch("https://127.0.0.1:5000/logout", {
+    const resp = await fetch(`${process.env.REACT_APP_URL_DATABASE}/logout`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Token ${localStorage.getItem("token")}`

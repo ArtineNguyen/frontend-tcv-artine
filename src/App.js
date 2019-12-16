@@ -28,7 +28,7 @@ function App() {
       : null;
       const token = local || accessToken
       console.log(token)
-    const resp = await fetch("https://127.0.0.1:5000/getuser",{
+    const resp = await fetch(`${process.env.REACT_APP_URL_DATABASE}/getuser`,{
         headers: {
           Authorization: `Token ${token}`
         }

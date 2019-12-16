@@ -21,7 +21,7 @@ export default function Event(props) {
         getEvent()
     }, [])
     const create_event = async()=>{
-        const resp = await fetch('https://127.0.0.1:5000/event/create-event',{
+        const resp = await fetch(`${process.env.REACT_APP_URL_DATABASE}/event/create-event`,{
             method: "POST",
             headers:{
                 Authorization: localStorage.getItem('token'),
@@ -71,7 +71,7 @@ export default function Event(props) {
       const  d = new Date(DATETIME);
 
     const getEvent = async () => {
-        const resp = await fetch('https://127.0.0.1:5000/event/render-event', {
+        const resp = await fetch(`${process.env.REACT_APP_URL_DATABASE}/event/render-event`, {
             headers: {
                 "Content-Type": "application/json",
             },
@@ -96,7 +96,7 @@ export default function Event(props) {
         )
     })
     const deleteEvent = async(id) => {
-        const resp = await fetch(`https://127.0.0.1:5000/event/delete/${id}`,{
+        const resp = await fetch(`${process.env.REACT_APP_URL_DATABASE}/event/delete/${id}`,{
         method: 'DELETE',    
         headers:{
                 Authorization: localStorage.getItem('token'),

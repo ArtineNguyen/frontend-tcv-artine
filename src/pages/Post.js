@@ -14,7 +14,7 @@ export default function Post(props) {
         getPost()
     }, [])  
     const create_post = async () => {
-        const resp = await fetch('https://127.0.0.1:5000/post/create', {
+        const resp = await fetch(`${process.env.REACT_APP_URL_DATABASE}/post/create`, {
             method: "POST",
             headers: {
                 Authorization: localStorage.getItem('token'),
@@ -36,7 +36,7 @@ export default function Post(props) {
         create_post()
     }
     const getPost = async () => {
-        const resp = await fetch('https://127.0.0.1:5000/post/render-post', {
+        const resp = await fetch(`${process.env.REACT_APP_URL_DATABASE}/post/render-post`, {
             headers: {
                 Authorization: localStorage.getItem('token'),
                 "Content-Type": "application/json",
@@ -61,7 +61,7 @@ export default function Post(props) {
         )
     })
     const deletePost = async(id) => {
-        const resp = await fetch(`https://127.0.0.1:5000/post/delete/${id}`,{
+        const resp = await fetch(`${process.env.REACT_APP_URL_DATABASE}/post/delete/${id}`,{
         method: 'DELETE',    
         headers:{
                 Authorization: localStorage.getItem('token'),

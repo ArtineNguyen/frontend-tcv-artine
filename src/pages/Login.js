@@ -26,7 +26,7 @@ export default function Login(props) {
         setVisibleBtn('visible')
     }
     const loginUser = async () => {
-        const resp = await fetch('https://127.0.0.1:5000/login', {
+        const resp = await fetch(`${process.env.REACT_APP_URL_DATABASE}/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -49,7 +49,7 @@ export default function Login(props) {
     }
 
     const signupUser = async () => {
-        const resp = await fetch('https://127.0.0.1:5000/register', {
+        const resp = await fetch(`${process.env.REACT_APP_URL_DATABASE}S/register`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
@@ -87,7 +87,7 @@ export default function Login(props) {
                 
                     <Link to="/forgot" className="forgot-pass">Forgot password?</Link>
                     <button type="submit" className="submit text-center" onClick={loginUser}>Sign In</button>
-                    <a href="https://127.0.0.1:5000/loginfacebook/facebook" className="fb-btn">Join with <span>facebook</span></a>
+                <a href={`${process.env.REACT_APP_URL_DATABASE}/loginfacebook/facebook`} className="fb-btn">Join with <span>facebook</span></a>
                     </div>
                 </Form.Group>
                 <div className="sub-cont">
@@ -125,7 +125,7 @@ export default function Login(props) {
                         </label>
                         <button type="submit" className="submit" onClick={() => signupUser()}>Sign Up</button>
                         <p>{state}</p>
-                        <a href="https://127.0.0.1:5000/loginfacebook/facebook" className="fb-btn">Join with <span>facebook</span></a>
+                        <a href={`${process.env.REACT_APP_URL_DATABASE}/loginfacebook/facebook`} className="fb-btn">Join with <span>facebook</span></a>
                         </div>
                     </div>
                 </div>

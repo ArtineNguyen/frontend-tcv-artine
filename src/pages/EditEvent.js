@@ -16,7 +16,7 @@ export default function EditEvent(props) {
 
 
     const getEvent = async()=>{
-        const resp = await fetch(`https://127.0.0.1:5000/event/single-event/${id}`,{
+        const resp = await fetch(`${process.env.REACT_APP_URL_DATABASE}/event/single-event/${id}`,{
             headers:{
                 "Content-Type": "application/json",
             }
@@ -34,7 +34,7 @@ export default function EditEvent(props) {
         getEvent()
     }, [])
     const change = async() =>{
-        const resp = await fetch(`https://127.0.0.1:5000/event/change/${id}`,{
+        const resp = await fetch(`${process.env.REACT_APP_URL_DATABASE}/event/change/${id}`,{
             method :"PUT",
             headers:{
                 Authorization: localStorage.getItem('token'),

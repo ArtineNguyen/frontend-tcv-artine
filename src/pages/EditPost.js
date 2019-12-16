@@ -10,7 +10,7 @@ export default function EditPost(props) {
     const [img, setImg] = useState()
     const [currentUserid, setCurrentUserid] = useState()
     const getPost = async () => {
-        const resp = await fetch(`https://127.0.0.1:5000/post/single-post/${id}`, {
+        const resp = await fetch(`${process.env.REACT_APP_URL_DATABASE}/post/single-post/${id}`, {
             headers: {
                 "Content-Type": "application/json",
             },
@@ -30,7 +30,7 @@ export default function EditPost(props) {
     if ((props.currentUser && props.currentUser.id) == currentUserid) history.goBack()
 console.log(body, title, img, "here is change")
 const editPost= async()=>{
-    const resp = await fetch(`https://127.0.0.1:5000/post/edit-post/${id}`,{
+    const resp = await fetch(`${process.env.REACT_APP_URL_DATABASE}/post/edit-post/${id}`,{
         method : "PUT",
         headers: {
             Authorization: localStorage.getItem('token'),

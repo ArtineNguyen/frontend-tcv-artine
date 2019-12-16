@@ -5,7 +5,7 @@ export default function Forgot() {
     const [state, setState] = useState('')
 
     const sendEmail = async () => {
-        const resp = await fetch('https://127.0.0.1:5000/forgot-password', {
+        const resp = await fetch(`${process.env.REACT_APP_URL_DATABASE}/forgot-password`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
