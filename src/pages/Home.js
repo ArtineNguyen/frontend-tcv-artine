@@ -1,5 +1,6 @@
 import React from 'react'
 import NavBar from '../components/NavBar'
+import { Container } from 'react-bootstrap'
 
 export default function Home() {
     const handleOnChange = (e) => {
@@ -7,7 +8,7 @@ export default function Home() {
     }
     return (
         <div class="event-section">
-			<div class="container">
+			<Container class="container">
 				<div class="row">
 					<div class="col-md-5 col-lg-6">
 
@@ -31,7 +32,7 @@ export default function Home() {
 						<a href="" class="site-btn sb-light-line">Read more</a>
 					</div>
 				</div>
-			</div>
+			</Container>
 
 
 
