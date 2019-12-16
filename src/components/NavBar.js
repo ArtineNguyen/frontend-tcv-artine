@@ -1,6 +1,8 @@
 import React from 'react'
-import { Nav, Navbar, Form, FormControl, Button } from "react-bootstrap"
-import { useHistory } from 'react-router-dom'
+import {Nav, NavDropdown, Navbar, Row, Col} from 'react-bootstrap'
+import { useHistory } from 'react-router-dom';
+import Countdown from 'react-countdown-now';
+
 export default function NavBar(props) {
   const history = useHistory()
   const logOut = async () => {
@@ -18,31 +20,40 @@ export default function NavBar(props) {
       alert("Something wrong log out again");
     }
   };
+
   return (
-    <div class="social">
-      <a href="#"><i class="fab fa-facebook-f"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-google-plus-g"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <Navbar bg="light" variant="light">
-        <Navbar.Brand href="#home">The Cancer Voice</Navbar.Brand>
-        <Nav className="mr-auto">
+    <Navbar className="top-nav-section" expand="lg">
+      <Row>
+        <Col sm className="social">
           <a href="#"><i class="fab fa-facebook-f"></i></a>
           <a href="#"><i class="fab fa-twitter"></i></a>
           <a href="#"><i class="fab fa-google-plus-g"></i></a>
           <a href="#"><i class="fab fa-instagram"></i></a>
+        </Col>
+        <Col xs={6} className="counter-top">
+          <h5>Upcoming Event:</h5>
+						<a href="#" class="top-readmore hidden-sm">readmore</a>
+        </Col>
+        <Col>
+        </Col>
+      </Row>
+      {/* <Navbar.Brand href="#home">
+      <img alt="" src="/logo.svg" width="30" height="30" className="d-inline-block align-top" />{' '}
+      The Cancer Voice
+      </Navbar.Brand> */}
+      {/* <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="mr-sm-2">
           <Nav.Link href="#home">Home</Nav.Link>
-          <Nav.Link href="#features">Features</Nav.Link>
-          <Nav.Link href="#pricing">Pricing</Nav.Link>
+          <Nav.Link href="#link">About Us</Nav.Link>
+          <Nav.Link href="#link">Event</Nav.Link>
+          <Nav.Link href="#link">Blog</Nav.Link>
+          <Nav.Link href="#link">Donate</Nav.Link>
+          <Nav.Link href="#link">Contact</Nav.Link>
         </Nav>
         <Form inline>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button variant="outline-primary">Search</Button>
-          <div onClick={() => logOut()}>log out</div>
-        </Form>
-
-      </Navbar>
-
-    </div>
+        <Button variant="outline-success">Send Donation</Button>
+      </Navbar.Collapse> */}
+    </Navbar>
   )
 }

@@ -6,6 +6,10 @@ import Login from './pages/Login'
 import NavBar from './components/NavBar';
 import Forgot from './pages/Forgot';
 import Post from './pages/Post'
+import Event from './pages/Event'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import EditPost from './pages/EditPost';
+import EditEvent from "./pages/EditEvent"
 
 
 function App() {
@@ -31,9 +35,9 @@ function App() {
     });
     if (resp.ok){
       const data = await resp.json()
-      console.log('pls work')
       localStorage.setItem('token', token)
       setCurrentUser(data)
+      console.log(data)
     } else {
       localStorage.clear('token')
       setCurrentUser(null)
@@ -48,6 +52,10 @@ function App() {
         <Route exact path="/" render={()=> <Home />}/>
         <Route path="/forgot" render={()=> <Forgot/>}/>
         <Route path="/login" render ={()=> <Login setCurrentUser={setCurrentUser}/>}/>
+        {/* <Route path="/post" render ={()}=> <Post/>}/> */}
+        <Route path="/post/edit/:id" render = {()=><EditPost currentUser = {currentUser}/>}/>
+        <Route exact path ="/edit/:id/event" render={()=><EditEvent currentUser = {currentUser}/>}/>
+        <Route path="/event" render={()=><Event currentUser={currentUser}/>}/>
         <Route path="/upload-post" render={()=> <Post currentUser = {currentUser}/>}/>
       </Switch>
     </div>
